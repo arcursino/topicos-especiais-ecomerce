@@ -9,3 +9,7 @@ No navegador:
 gitpod.io/#/https://github.com/arcursino/topicos-especiais-ecomerce
 
 já fara o pull e iniciar o workspace no gitpod
+
+```
+mvn spring-boot:run
+```
