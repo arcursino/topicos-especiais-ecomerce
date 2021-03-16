@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cli_cliente")
-public class Usuario {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,15 +29,15 @@ public class Usuario {
     private String email;   
 
     @Column(name = "cli_idade")
-    private int idade;   
+    private Integer idade;   
     
     
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "uau_usuario.autorizacao",
+    @JoinTable(name = "tab_cliente_pedido",
         joinColumns = { @JoinColumn(name= "cli_id")},
         inverseJoinColumns = { @JoinColumn(name = "ped_id")}
         )
-    private Set<Autorizacao> autorizacoes;
+    private Set<Pedido> pedidos;
     
     public Long getId() {
         return this.id;
@@ -63,11 +63,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getIdade() {
+    public Integer getIdade() {
         return this.idade;
     }
 
-    public void setIdade (int idade) {
+    public void setIdade (Integer idade) {
         this.idade = idade;
     }
 
